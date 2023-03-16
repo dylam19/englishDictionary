@@ -3,27 +3,15 @@ const result = document.getElementById('result');
 const sound = document.getElementById('sound');
 const searchButton = document.getElementById('search-button');
 const themeToggle = document.getElementById('themeToggle');
-// selecting loading div
 const loader = document.querySelector("#loading");
 
-// showing loading
-function displayLoading() {
-    loader.classList.add("display");
-    // to stop loading after some time
-    setTimeout(() => {
-        loader.classList.remove("display");
-    }, 4000);
-}
 
-// hiding loading 
-function hideLoading() {
-    loader.classList.remove("display");
-}
-
-themeToggle.onclick = function(){
-    document.body.classList.toggle("dark-theme");
-};
-
+document.getElementById("input")
+    .addEventListener("keyup", function(e) {
+        if (e.code === 'Enter') {
+            searchButton.click();
+        }
+    });
 
 searchButton.addEventListener('click', ()=>{
     displayLoading()
@@ -32,16 +20,6 @@ searchButton.addEventListener('click', ()=>{
     .then((response) => response.json())
     .then((data)=>{
         hideLoading()
-        console.log(data[0].meanings[0].definitions[0].definition);
-        console.log(data[0].phonetics[0].text)
-        console.log(data)
-
-        // for (var i=0; i<data[0].meanings[0].definitions.length; i++){
-        //     if(data[0].meanings[0].definitions[i].example){
-        //         console.log(data[0].meanings[0].definitions[i].example)
-        //     }
-        // }
-
         result.innerHTML = `
             <div class="word">
                 <h1>${searchWord}</h1>
@@ -88,14 +66,12 @@ function exampleVerify(data){
         if (noMoreThanThree === 3){break;}
         if(data[0].meanings[j].definitions[i].example){
             noMoreThanThree = noMoreThanThree + 1;
-            console.log(data[0].meanings[j].definitions[i].example);
             examplesList += `<li>${data[0].meanings[j].definitions[i].example}</li>`
         }
         
     }
     }
     
-    console.log(examplesList)
     return examplesList
 }
 function phoneticTextVerify(data){
@@ -112,4 +88,20 @@ function phoneticAudioVerify(data){
         }
     }
 }
+function displayLoading() {
+    loader.classList.add("display");
+    setTimeout(() => {
+        loader.classList.remove("display");
+    }, 4000);
+}
+
+function hideLoading() {
+    loader.classList.remove("display");
+}
+
+themeToggle.onclick = function(){
+    document.body.classList.toggle("dark-theme");
+};
+
+
 
