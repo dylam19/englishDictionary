@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dictionary</title>
+
+    <link rel="shortcut icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a40d39d578.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+            <input type="checkbox" name="" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </nav>
+    </header>
+    <audio id="sound"></audio>
+    <main class="card">
+        <div class="content-container">
+        <div class="search-area">
+                <input type="text" placeholder="Search" class="search" id="input">
+                <button id="search-button"><i class="fas fa-search"></i></button>
+        </div>
+        <div id="loading"></div>
+        <div class="result" id="result">
+            <div class="word">
+                <h1>Dictionary</h1>
+                <p>noun</p>
+                <p>/ˈdɪkʃəˌnɛɹi/</p>
+                <button onclick="playSound()">
+                   <i class="fas fa-volume-up"></i>
+                </button>
+            </div>
+            <div class="meaning">
+            <h3>meaning</h3>
+            <p>A reference work with a list of words from one or more languages, normally ordered alphabetically, explaining each word's meaning, and sometimes containing information on its etymology, pronunciation, usage, translations, and other data.</p>
+        </div>
+
+        </div>
+    </div>
+    </main>
+    
+    <script src="index.js">
+
+    </script>
+    
+</body>
+</html>
